@@ -1,0 +1,111 @@
+/* Header.css */
+
+.header {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Barra de búsqueda */
+.header-busqueda {
+  flex: 0 1 280px;
+}
+
+.header-busqueda input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.header-busqueda input::placeholder {
+  color: #94a3b8;
+}
+
+.header-busqueda input:focus {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Contenedor derecha (notificaciones + usuario) */
+/* ⚠️ En tu código la clase es "hedaer-derecha" (typo). Corrígela a "header-derecha" para que funcione este CSS */
+.header-derecha {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Notificaciones */
+.header-notificaciones {
+  position: relative;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Badge de notificación */
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 0.1rem 0.4rem;
+  border-radius: 1rem;
+  min-width: 1.2rem;
+  text-align: center;
+  line-height: 1.2;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.4);
+}
+
+/* Usuario / Avatar */
+.header-usuario {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Avatar {
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
+}
+
+.Avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  .header-busqueda {
+    flex: 1 1 100%;
+  }
+}

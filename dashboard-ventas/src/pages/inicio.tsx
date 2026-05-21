@@ -7,6 +7,7 @@ import ListaPedidos from "../components/ListaPedidos";
 
 
 
+
 function Inicio(){
   const [ingresos, setIngresos] = useState<number>(0);
   const [totalPedidos, setTotalPedidos] = useState<number>(0);
