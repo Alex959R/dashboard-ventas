@@ -1,0 +1,89 @@
+/* =========================
+   TablaProductos.css
+========================= */
+
+.tabla-contenedor {
+    margin-top: 40px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    overflow-x: auto;
+}
+
+/* Título de la tabla */
+.tabla-contenedor h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+/* Tabla */
+.tabla-contenedor table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Encabezados */
+.tabla-contenedor thead {
+    background: #2e75b6;
+}
+
+.tabla-contenedor th {
+    padding: 16px;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.3px;
+}
+
+/* Filas */
+.tabla-contenedor tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s ease;
+}
+
+.tabla-contenedor tbody tr:hover {
+    background: #f3f7fb;
+}
+
+/* Celdas */
+.tabla-contenedor td {
+    padding: 16px;
+    font-size: 0.95rem;
+    color: #374151;
+}
+
+/* Última fila sin borde */
+.tabla-contenedor tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Primera columna destacada */
+.tabla-contenedor td:first-child {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabla-contenedor {
+        padding: 18px;
+    }
+
+    .tabla-contenedor h2 {
+        font-size: 1.25rem;
+    }
+
+    .tabla-contenedor th,
+    .tabla-contenedor td {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}

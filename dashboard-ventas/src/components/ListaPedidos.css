@@ -1,0 +1,350 @@
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+
+.lista-contenedor {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lista-contenedor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================
+   TÍTULO
+   ============================================ */
+
+.lista-contenedor h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+    display: inline-block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   LISTA (UL)
+   ============================================ */
+
+.lista-contenedor ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ============================================
+   ELEMENTOS DE LISTA (LI)
+   ============================================ */
+
+.lista-contenedor li {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto hover en cada pedido */
+.lista-contenedor li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #f8f9ff;
+}
+
+/* Línea decorativa izquierda */
+.lista-contenedor li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.lista-contenedor li:hover::before {
+    transform: scaleY(1);
+}
+
+/* ============================================
+   ID DEL PEDIDO
+   ============================================ */
+
+.pedido-id {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 70px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.lista-contenedor li:hover .pedido-id {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   NOMBRE DEL CLIENTE
+   ============================================ */
+
+.pedido-cliente {
+    flex: 1;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ícono antes del nombre (opcional) */
+.pedido-cliente::before {
+    content: '👤';
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+/* ============================================
+   ESTADO DEL PEDIDO (BASE)
+   ============================================ */
+
+.pedido-estado {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: default;
+}
+
+.lista-contenedor li:hover .pedido-estado {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   ESTADOS ESPECÍFICOS (Los colores los pone tu función)
+   ============================================ */
+
+/* Estos estilos se aplican ADEMÁS del color de fondo */
+.pedido-estado {
+    position: relative;
+    padding-right: 28px;
+}
+
+/* Íconos según el estado */
+.pedido-estado[data-estado="entregado"]::after {
+    content: '✓';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.pedido-estado[data-estado="pendiente"]::after {
+    content: '⏱';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+}
+
+.pedido-estado[data-estado="enviado"]::after {
+    content: '🚚';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   ANIMACIÓN DE ENTRADA
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.lista-contenedor li {
+    animation: fadeInUp 0.4s ease-out forwards;
+    opacity: 0;
+}
+
+/* Delay escalonado para cada pedido */
+.lista-contenedor li:nth-child(1) { animation-delay: 0.05s; }
+.lista-contenedor li:nth-child(2) { animation-delay: 0.10s; }
+.lista-contenedor li:nth-child(3) { animation-delay: 0.15s; }
+.lista-contenedor li:nth-child(4) { animation-delay: 0.20s; }
+.lista-contenedor li:nth-child(5) { animation-delay: 0.25s; }
+.lista-contenedor li:nth-child(6) { animation-delay: 0.30s; }
+.lista-contenedor li:nth-child(7) { animation-delay: 0.35s; }
+.lista-contenedor li:nth-child(8) { animation-delay: 0.40s; }
+.lista-contenedor li:nth-child(9) { animation-delay: 0.45s; }
+.lista-contenedor li:nth-child(10) { animation-delay: 0.50s; }
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .lista-contenedor {
+        padding: 16px;
+    }
+
+    .lista-contenedor h2 {
+        font-size: 1.4rem;
+    }
+
+    .lista-contenedor li {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 16px;
+    }
+
+    .pedido-id {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        min-width: 60px;
+    }
+
+    .pedido-cliente {
+        font-size: 1rem;
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .pedido-estado {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        padding-right: 24px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .lista-contenedor {
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .lista-contenedor h2 {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+    }
+
+    .lista-contenedor li {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .pedido-id {
+        align-self: center;
+    }
+
+    .pedido-cliente {
+        justify-content: center;
+    }
+
+    .pedido-cliente::before {
+        content: '👤';
+    }
+
+    .pedido-estado {
+        align-self: center;
+        width: fit-content;
+    }
+
+    .lista-contenedor li:hover {
+        transform: translateY(-3px);
+        translateX: 0;
+    }
+}
+
+/* ============================================
+   VARIANTE OSCURA (opcional - para modo oscuro)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    .lista-contenedor li {
+        background: #1a1a2e;
+    }
+
+    .pedido-cliente {
+        color: #e2e8f0;
+    }
+
+    .lista-contenedor li:hover {
+        background: #16213e;
+    }
+}
+
+/* ============================================
+   VARIANTE COMPACTA (opcional)
+   ============================================ */
+
+.lista-contenedor.compacto {
+    padding: 16px;
+}
+
+.lista-contenedor.compacto li {
+    padding: 10px 16px;
+    gap: 12px;
+}
+
+.lista-contenedor.compacto .pedido-id {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+}
+
+.lista-contenedor.compacto .pedido-cliente {
+    font-size: 0.9rem;
+}
+
+.lista-contenedor.compacto .pedido-estado {
+    font-size: 0.7rem;
+    padding: 3px 12px;
+}
