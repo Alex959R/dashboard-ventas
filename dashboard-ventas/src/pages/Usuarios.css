@@ -1,0 +1,62 @@
+.usuarios-contenedor {
+  padding: 20px;
+}
+
+.usuarios-no-permitido {
+  color: #e74c3c;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.usuarios-mensaje {
+  background-color: #e8f5e9;
+  border-left: 4px solid #27ae60;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  color: #1e6b3a;
+}
+
+.usuarios-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.usuarios-tabla th {
+  background-color: #2e75b6;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+.usuarios-tabla td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.usuario-actual {
+  background-color: #f0f6fc;
+}
+
+.btn-eliminar-usuario {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-eliminar-usuario:hover {
+  background-color: #c0392b;
+}
+
+.usuarios-tabla select {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

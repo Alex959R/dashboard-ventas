@@ -1,0 +1,57 @@
+.productos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.btn-nuevo,
+.btn-restablecer {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 8px;
+}
+
+.btn-nuevo {
+  background-color: #2e75b6;
+  color: white;
+}
+
+.btn-restablecer {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.btn-editar,
+.btn-eliminar {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 0 4px;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.btn-editar:hover {
+  background-color: #eaf0fa;
+}
+
+.btn-eliminar:hover {
+  background-color: #fdecea;
+}
+
+.aviso-solo-lectura {
+  background-color: #fff8e1;
+  color: #b8860b;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}

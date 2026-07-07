@@ -111,3 +111,48 @@
     white-space: nowrap;
   }
 }
+.sidebar-usuario {
+  margin-top: auto;
+  padding: 16px 24px;
+  border-top: 1px solid #2e4a7a;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.usuario-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2e75b6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.usuario-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.usuario-nombre {
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.usuario-rol {
+  font-size: 12px;
+  color: #a8c5e8;
+  text-transform: capitalize;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}

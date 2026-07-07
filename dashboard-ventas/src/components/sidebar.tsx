@@ -1,68 +1,68 @@
-export type SeccionId = 'Inicio' | 'productos' | 'pedidos' | 'configuracion';
+import { useAuth } from '../context/AuthContext';
+import type { Rol } from '../types';
+import './Sidebar.css';
+
+export type SeccionId = 'inicio' | 'productos' | 'pedidos' | 'analisis' | 'configuracion' | 'usuarios';
 
 interface ItemMenu {
-    id : SeccionId;
-    icono : string;
-    texto : string;
+  id: SeccionId;
+  icono: string;
+  texto: string;
+  rolesPermitidos: Rol[];
 }
 
-interface SidebarProps {    
-    seccionActiva : SeccionId;
-    onSeleccionarSeccion : (seccion: SeccionId) => void;
+interface SidebarProps {
+  seccionActiva: SeccionId;
+  onSeleccionarSeccion: (seccion: SeccionId) => void;
 }
 
-const menu: ItemMenu[] = [
-
-
-    {
-
-    id: 'Inicio',
-    icono:'🏠',
-    texto: 'Inicio'
-},
-{
-    id: 'productos',
-    icono:'📦',
-    texto: 'Productos'
-},
-{
-    id: 'pedidos',
-    icono:'🛒',
-    texto: 'Pedidos'
-},
-{
-    id: 'configuracion',
-    icono: '⚙️',
-    texto: 'Configuracion'
-
-}
+const menuCompleto: ItemMenu[] = [
+  { id: 'inicio',        icono: '🏠', texto: 'Inicio',        rolesPermitidos: ['administrador', 'vendedor', 'visualizador'] },
+  { id: 'productos',     icono: '📦', texto: 'Productos',     rolesPermitidos: ['administrador', 'vendedor', 'visualizador'] },
+  { id: 'pedidos',       icono: '🛒', texto: 'Pedidos',       rolesPermitidos: ['administrador', 'vendedor', 'visualizador'] },
+  { id: 'analisis',      icono: '📈', texto: 'Análisis',      rolesPermitidos: ['administrador', 'visualizador'] },
+  { id: 'configuracion', icono: '⚙️', texto: 'Configuración', rolesPermitidos: ['administrador'] },
+  { id: 'usuarios',      icono: '👥', texto: 'Usuarios',      rolesPermitidos: ['administrador'] }
 ];
 
-function sidebar (props: SidebarProps){
-    return (
-        <aside className= "sidebar">
-            <div className = "sidebar-logo">
-                🤑 <span>VentasApp</span>
+function Sidebar(props: SidebarProps) {
+  const { usuario, tienePermiso } = useAuth();
 
-            </div>
-            <nav >
-                <ul >
-                    {menu.map((item)=> (
-                        <li key={item.id} className={item.id === props.seccionActiva ? 'activo' : ''}
-                        onClick={()=> props.onSeleccionarSeccion(item.id)}>
-                        <span className= "icono"> {item.icono}
-                        </span>
-                        <span>{item.texto}</span>
-                        </li>
-                    
-                     ))}
+  if (!usuario) return null;
 
-                </ul>
-            </nav>
+  // Filtrar solo las secciones permitidas para el rol actual
+  const menuVisible = menuCompleto.filter((item) =>
+    tienePermiso(item.rolesPermitidos)
+  );
 
-               </aside>
-    );
-
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-logo">
+        📊 <span>VentasApp</span>
+      </div>
+      <nav>
+        <ul>
+          {menuVisible.map((item) => (
+            <li
+              key={item.id}
+              className={item.id === props.seccionActiva ? 'activo' : ''}
+              onClick={() => props.onSeleccionarSeccion(item.id)}
+            >
+              <span className="icono">{item.icono}</span>
+              <span>{item.texto}</span>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className="sidebar-usuario">
+        <div className="usuario-avatar">{usuario.nombre.charAt(0)}</div>
+        <div className="usuario-info">
+          <div className="usuario-nombre">{usuario.nombre}</div>
+          <div className="usuario-rol">{usuario.rol}</div>
+        </div>
+      </div>
+    </aside>
+  );
 }
 
-export default sidebar;
+export default Sidebar;

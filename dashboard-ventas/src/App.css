@@ -1,0 +1,83 @@
+/* App.css - Estilos principales de la aplicación */
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #0f172a;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+/* Contenido principal (derecha) */
+.app-contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  background-color: #f8fafc;
+}
+
+/* Scroll personalizado */
+.app-contenido::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-contenido::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.app-contenido::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.app-contenido::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Main (área de contenido dinámico) */
+.app-main {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+/* Animación de entrada para las páginas */
+.app-main > * {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive para tabletas */
+@media (max-width: 1024px) {
+  .app-main {
+    padding: 1rem;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .app-contenido {
+    width: 100%;
+  }
+  
+  .app-main {
+    padding: 0.75rem;
+  }
+}
