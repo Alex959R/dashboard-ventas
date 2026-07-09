@@ -1,0 +1,92 @@
+/* ============================================
+   Estilos generales para contenedores de gráficos
+   ============================================ */
+.grafico-contenedor {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  border-radius: 32px;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px 0;
+}
+
+.grafico-contenedor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.grafico-contenedor h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1e293b, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  display: inline-block;
+}
+
+/* ============================================
+   Estilos específicos para barras de categorías
+   ============================================ */
+.grafico-barras-contenedor {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 24px;
+  border-radius: 32px;
+  box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 20px 0;
+}
+
+.grafico-barras-contenedor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.grafico-barras-contenedor h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1e293b, #3b82f6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+  display: inline-block;
+}
+
+/* Ajustes responsivos compartidos */
+@media (max-width: 768px) {
+  .grafico-contenedor,
+  .grafico-barras-contenedor {
+    padding: 16px;
+  }
+  .grafico-contenedor h2,
+  .grafico-barras-contenedor h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Modo oscuro automático */
+@media (prefers-color-scheme: dark) {
+  .grafico-contenedor,
+  .grafico-barras-contenedor {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  .grafico-contenedor h2,
+  .grafico-barras-contenedor h2 {
+    background: linear-gradient(135deg, #e2e8f0, #60a5fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+}

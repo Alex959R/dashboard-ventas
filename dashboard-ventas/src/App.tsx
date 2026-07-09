@@ -92,8 +92,8 @@ function App() {
       />
     );
     if (seccionActiva === 'pedidos') return <Pedidos />;
-    if (seccionActiva === 'analisis') return <Analisis />;
-    if (seccionActiva === 'configuracion') return <Configuracion />;
+if (seccionActiva === 'analisis') return <Analisis productos={productos} />;    
+if (seccionActiva === 'configuracion') return <Configuracion />;
     if (seccionActiva === 'usuarios') return <Usuarios />;
     return <Inicio />;
   };

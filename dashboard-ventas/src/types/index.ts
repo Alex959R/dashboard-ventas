@@ -25,3 +25,7 @@ export interface Usuario {
 
 // Usuario que se expone a la app SIN la contraseña
 export type UsuarioSesion = Omit<Usuario, 'password'>;
+export interface IngresosMes {
+  mes: string;      // Ej: "Ene", "Feb", ...
+  ingresos: number; // Total de ingresos en ese mes
+}

@@ -50,3 +50,17 @@ export const pedidos: Pedido[] = [
   { id: 1004, cliente: "Juan Rodríguez", total: 765000, estado: "entregado" },
   { id: 1005, cliente: "Laura Martínez", total: 120000, estado: "pendiente" },
 ];
+export const ingresosMensuales: { mes: string; ingresos: number }[] = [
+  { mes: 'Ene', ingresos: 300000 },
+  { mes: 'Feb', ingresos: 320000 },
+  { mes: 'Mar', ingresos: 340000 },
+  { mes: 'Abr', ingresos: 350000 },
+  { mes: 'May', ingresos: 360000 },
+  { mes: 'Jun', ingresos: 370000 },
+  { mes: 'Jul', ingresos: 350000 },
+  { mes: 'Ago', ingresos: 340000 },
+  { mes: 'Sep', ingresos: 330000 },
+  { mes: 'Oct', ingresos: 310000 },
+  { mes: 'Nov', ingresos: 290000 },
+  { mes: 'Dic', ingresos: 385000 },
+];
